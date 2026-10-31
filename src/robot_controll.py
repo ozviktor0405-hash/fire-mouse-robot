@@ -1,4 +1,5 @@
-def draw_player(room_long,radius,canvas,p_x,p_y):
+from tkinter import Button
+def draw_player(room_long: int,radius: int,canvas,p_x: int,p_y: int):
     canvas.delete("player")  # Находим старый кружок по тегу и стираем его
     cx = p_x * room_long + room_long // 2  # Находим пиксельный центр комнаты X
     cy = p_y * room_long + room_long // 2  # Находим пиксельный центр комнаты Y
@@ -12,7 +13,7 @@ def draw_player(room_long,radius,canvas,p_x,p_y):
 from robot_controll import draw_player
 
 
-def move_robot_to(direction, p_x, p_y, nombers_room, room_long, radius, canvas, v_walls, h_walls):
+def move_robot_to(direction: str, p_x: int, p_y: int, nombers_room: int, room_long: int, radius: int, canvas, v_walls: int, h_walls: int):
     # === Рождение old_x и old_y (создание слепка-страховки) ===
     old_x, old_y = p_x, p_y
 
@@ -55,12 +56,12 @@ def move_robot_to(direction, p_x, p_y, nombers_room, room_long, radius, canvas, 
     # ОБЯЗАТЕЛЬНО: отдаем новые измененные координаты обратно в main.py
     return p_x, p_y
 
-def wall_conroll(button):
+def wall_conroll(button: Button):
     if button["bg"] == "#CCCCCC":
         button.config(bg="black")
     else:
         button.config(bg="#CCCCCC")
-def walls(nombers_room,room_long,Button,root,canvas,v_walls,h_walls):
+def walls(nombers_room: int,room_long: int,Button: Button,root,canvas,v_walls: int,h_walls: int):
     for i in range(nombers_room):
         for j in range(nombers_room):
             x_right = (j + 1) * room_long

@@ -1,4 +1,4 @@
-def draw_rooms(canvas, nombers_room,room_long, p_x ,p_y):
+def draw_rooms(canvas, nombers_room: int,room_long: int, p_x :int,p_y: int):
     for i in range(nombers_room):
         for j in range(nombers_room):
             x1 = j * room_long
